@@ -12,6 +12,22 @@ body {
     font-family: "Cambria";
 }
 
+.clearfix {
+    clear: both;
+}
+
+a, i {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
 h1 {
     font-family: "Ficus";
     font-weight: bold;
@@ -108,4 +124,35 @@ span.picture {
 
 .show_recipe {
     margin: 10px;
+}
+
+.sort-by-nav {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.active, .pagination > .active > a {
+    background-color: #312312 !important;
+    color: #ededed !important;
+}
+
+.time-stamps {
+    margin-top: 10px;
+}
+
+.created-at {
+    margin-bottom: 0;
+}
+
+.updated_at {
+    margin-bottom: 10px;
+}
+
+.thumbs {
+    margin-bottom: 0;
+    margin-top: 30px;
+}
+
+.well > h3 {
+    margin-top: 0;
 }
