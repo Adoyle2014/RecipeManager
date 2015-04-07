@@ -1,50 +1,41 @@
-<%= render 'shared/page_title', title: "All Recipes" %>
+<%= render 'shared/page_title_and_paginate_sort', title: "All Recipes", sort1: "Likes", sort2: "Updated", sort3: "Chef" %>
 
-<div class="col-md-12">
-    <div class="pull-left"><%= will_paginate %></div>
-    <div class="pull-right sort-by-nav">
-        <p>Sort By:</p>
-        <div class="btn-group" role="group" aria-label="Sort Recipes">
-            <button type="button" class="btn btn-default active">Likes</button>
-            <button type="button" class="btn btn-default">Updated</button>
-            <button type="button" class="btn btn-default">Chef</button>
+
+<div class="container">
+    <% @recipes.each do |recipe| %>
+        <div class="row">
+            <div class="col-md-2">
+                <section class="chef_info center">
+                    <%= link_to gravatar_for(recipe.chef, size: 100), chef_path(recipe.chef) %>
+                    <h5>Chef: <%= recipe.chef.chefname %></h5>
+                </section>
+            </div>
+            <div class="col-lg-6 well">
+                <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
+                <p><%= recipe.summary %></p>
+                <div class="time-stamps pull-left">
+                    <p class="created-at"><span class="quiet"><small>created <%= time_ago_in_words(recipe.created_at) %> ago</small></span></p>
+                    <p class="updated-at"><span class="quiet"><small>last updated <%= time_ago_in_words(recipe.updated_at) %> ago</small></span></p>
+                </div>
+                <div class="pull-right thumbs">
+                    <%= link_to like_recipe_path(recipe, like: true), method: :post do %>
+                        <i class="glyphicon glyphicon-thumbs-up"></i> &nbsp <%= recipe.thumbs_up_total %>
+                    <% end %> &nbsp&nbsp&nbsp&nbsp
+                    <%= link_to like_recipe_path(recipe, like: false), method: :post do %>
+                        <i class="glyphicon glyphicon-thumbs-down"></i> &nbsp <%= recipe.thumbs_down_total %>
+                    <% end %>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="col-md-4 center">
+                <%= image_tag(recipe.picture.url, size: "250x150", class: "gravatar") if recipe.picture? %>
+            </div>
+        </div>
+        <hr class="recipe-hr"/>
+    <% end %>
+    <div class="row">
+        <div class="col-md-4 pull-right paginate">
+            <%= will_paginate %>
         </div>
     </div>
 </div>
-<div class="clearfix"></div>
-
-<% @recipes.each do |recipe| %>
-    <div class="row">
-        <div class="col-md-2">
-            <section class="chef_info center">
-                <%= gravatar_for recipe.chef, size: 100 %>
-                <h5>Chef: <%= recipe.chef.chefname %></h5>
-            </section>
-        </div>
-        <div class="col-lg-6 well">
-            <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
-            <p><%= recipe.summary %></p>
-            <div class="time-stamps pull-left">
-                <p class="created-at"><span class="quiet"><small>created <%= time_ago_in_words(recipe.created_at) %> ago</small></span></p>
-                <p class="updated-at"><span class="quiet"><small>last updated <%= time_ago_in_words(recipe.updated_at) %> ago</small></span></p>
-            </div>
-            <div class="pull-right thumbs">
-                <%= link_to like_recipe_path(recipe, like: true), method: :post do %>
-                    <i class="glyphicon glyphicon-thumbs-up"></i> &nbsp <%= recipe.thumbs_up_total %>
-                <% end %> &nbsp&nbsp&nbsp&nbsp
-                <%= link_to like_recipe_path(recipe, like: false), method: :post do %>
-                    <i class="glyphicon glyphicon-thumbs-down"></i> &nbsp <%= recipe.thumbs_down_total %>
-                <% end %>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-        <div class="col-md-4 center">
-            <%= image_tag(recipe.picture.url, size: "250x150", class: "gravatar") if recipe.picture? %>
-        </div>
-        
-    </div>
-    <hr/>
-
-<% end %>
-
-<%= will_paginate %>

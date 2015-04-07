@@ -127,8 +127,8 @@ span.picture {
 }
 
 .sort-by-nav {
-    margin-top: 15px;
-    text-align: center;
+    margin-top: 35px;
+    text-align: left;
 }
 
 .active, .pagination > .active > a {
@@ -156,3 +156,58 @@ span.picture {
 .well > h3 {
     margin-top: 0;
 }
+
+.custom-alert {
+    width: 350px;
+}
+
+.chef {
+    width: 31%;
+    
+}
+
+.chefs {
+    text-align: center;
+    
+}
+
+
+
+.chef {
+    display: inline-block;
+    width: 30%;
+    margin: 10px 1.5%;
+}
+
+.page-title {
+    margin-top: 30px;
+    
+}
+
+.paginate {
+    text-align: right;
+   
+}
+
+hr {
+    margin: 0;
+}
+
+.title-row {
+    
+}
+
+.nav-chef-name {
+    color: #ededed;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.recipe-hr, .nav-hr, .chef-hr {
+    margin-bottom: 20px;
+}
+
+.hr-top-margin {
+    margin-top: 20px;
+}
+

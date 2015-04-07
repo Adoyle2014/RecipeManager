@@ -1,0 +1,14 @@
+<%= render 'shared/page_title_and_paginate_sort', title: "All Chefs", sort1: "Likes", sort2: "Asc", sort3: "Desc" %>
+<div class="container">
+    <div class="row chefs">
+        <% @chefs.each do |chef| %>
+            <div class="well chef">
+                <%= link_to gravatar_for(chef, size: 200), chef_path(chef) %>
+                <p>
+                    <h5>Chef name: <%= chef.chefname %></h5>
+                </p>
+                <small>Total Recipe Votes For: &nbsp<i class="glyphicon glyphicon-thumbs-up"></i><%= chef.chef_thumbs_up_total %> &nbsp &nbsp <i class="glyphicon glyphicon-thumbs-down"></i><%= chef.chef_thumbs_down_total %></small>
+            </div>
+        <% end %>
+    </div>
+</div>

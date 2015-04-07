@@ -1,0 +1,19 @@
+<div class="row title-row">
+    <div class="pull-right col-md-4 paginate">
+        <%= will_paginate %>
+    </div>
+    <div class="center col-md-4 pull-right">
+        <p>
+            <h1 class="page-title"><%= title %></h1>
+        </p>
+    </div>
+    <div class="pull-right col-md-4 sort-by-nav">
+        <div class="btn-group" role="group" aria-label="Sort Recipes">
+            <button type="button" class="btn btn-default"><%= sort1 %></button>
+            <button type="button" class="btn btn-default active"><%= sort2 %></button>
+            <button type="button" class="btn btn-default"><%= sort3 %></button>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<hr class="nav-hr"/>
