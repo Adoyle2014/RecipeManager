@@ -136,6 +136,15 @@ span.picture {
     color: #ededed !important;
 }
 
+.nav-tabs > .tab-active, .nav-tabs > .tab-active > a {
+    background-color: #312312 !important;
+    color: #ededed !important;
+    border-radius: 10px !important;
+    border: 2px solid #ededed !important;
+}
+
+
+
 .time-stamps {
     margin-top: 10px;
 }

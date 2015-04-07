@@ -1,5 +1,13 @@
 <%= render 'shared/page_title_and_paginate_sort', title: "All Recipes", sort1: "Likes", sort2: "Updated", sort3: "Chef" %>
 
+<ul class="nav nav-tabs">
+    <li class="tab-active">
+        <%= link_to "Recipes", recipes_path %>
+    </li>
+    <li>
+        <%= link_to "Chefs", chefs_path %>
+    </li>
+</ul>
 
 <div class="container">
     <% @recipes.each do |recipe| %>
