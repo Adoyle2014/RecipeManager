@@ -1,4 +1,4 @@
-<%= render 'shared/page_title_and_paginate_sort', title: "All Recipes", paginate: @recipe, sort1: "Likes", sort2: "Updated", sort3: "Chef" %>
+<%= render 'shared/page_title_and_paginate_sort', title: "Recipes for: " + @ingredient.name, paginate: @recipe, sort1: "Likes", sort2: "Updated", sort3: "Chef" %>
 
 <ul class="nav nav-tabs">
     <li class="tab-active">
@@ -10,7 +10,7 @@
 </ul>
 
 <div class="container">
-    <% @recipes.each do |recipe| %>
+    <% @ingredient.recipes.each do |recipe| %>
         <div class="row">
             <div class="col-md-2">
                 <section class="chef_info center">
@@ -45,7 +45,7 @@
     <% end %>
     <div class="row">
         <div class="col-md-4 pull-right paginate">
-            <%= will_paginate %>
+            <%= will_paginate @recipe %>
         </div>
     </div>
 </div>
