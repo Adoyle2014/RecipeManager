@@ -119,6 +119,17 @@ input, textarea, select, .uneditable-input {
     
 }
 
+.input-checkbox input{
+    width: auto !important;
+    
+}
+
+.input-checkbox {
+    margin-left: 15px !important;
+}
+
+
+
 input {
     height: auto !important;
 }
@@ -131,7 +142,12 @@ span.picture {
 }
 
 .show_recipe {
-    margin: 10px;
+    
+}
+
+.recipe-gravatar {
+    margin: 0 20px 20px 0;
+    border-radius: 10px;
 }
 
 .sort-by-nav {
